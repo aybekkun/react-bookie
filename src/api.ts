@@ -17,5 +17,10 @@ export const api = {
             phone,
             password
         })
+    },
+    logout(token: string){
+        return instance.post(`api/logout`,{
+            token
+        })
     }
 }

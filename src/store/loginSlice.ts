@@ -1,27 +1,40 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Dispatch } from "react";
 import { api } from "../api";
 
+export interface LoginState {
+    isLoading: boolean
+    isUserLogin: boolean
+    user:  number | null 
+    error: string | null
+}
+
+const initialState: LoginState = {
+    isLoading: false,
+    isUserLogin: false,
+    user: null,
+    error: null,
+}
+
 const loginSlice = createSlice({
     name: "login",
-    initialState: {
-        isLoading: false,
-        isUserLogin: false,
-        error: null,
-    }
+    initialState, 
     reducers: {
-        setIsLoading(state, action){
+        setIsLoading(state, action: PayloadAction<boolean>){
             state.isLoading = action.payload;
         },
-        setIsUserLogin(state, action) {
+        setUser(state, action: PayloadAction<number|null>){
+            state.user = action.payload;
+        },
+        setIsUserLogin(state, action: PayloadAction<boolean>) {
             state.isUserLogin = action.payload;
         },
-        setError(state, action){
-            state.error = action.payload
+        setError(state, action: PayloadAction<string>){
+            state.error = action.payload;
         }
     },
 });
-export const { setIsLoading, setIsUserLogin, setError} = loginSlice.actions;
+export const { setIsLoading, setUser, setIsUserLogin, setError} = loginSlice.actions;
 
 export const login = (phone: string, password: string) => (dispatch: Dispatch<any>): void => {
     dispatch(setIsLoading(true));
@@ -29,6 +42,37 @@ export const login = (phone: string, password: string) => (dispatch: Dispatch<an
         .then((res) => {
             localStorage.setItem("token", res.data.token);
             dispatch(setIsUserLogin(true));
+        })
+        .catch((err) => {
+           dispatch(setError(err.response ? err.response.data : err.message))
+        })
+        .finally(() => {
+            dispatch(setIsLoading(false))
+        })   
+};
+
+export const logout = (token: string) => (dispatch: Dispatch<any>): void => {
+    dispatch(setIsLoading(true));
+    api.logout(token)
+        .then((res) => {
+            localStorage.removeItem("token");
+            dispatch(setUser(null));
+            dispatch(setIsUserLogin(false));
+        })
+        .catch((err) => {
+           dispatch(setError(err.response ? err.response.data : err.message))
+        })
+        .finally(() => {
+            dispatch(setIsLoading(false))
+        })   
+};
+
+export const registration = (phone: string, name: string, password: string) => (dispatch: Dispatch<any>): void => {
+    dispatch(setIsLoading(true));
+    api.registration(phone, name, password)
+        .then((res) => {
+            localStorage.setItem("token", res.data.token);
+            dispatch(setUser(res.data.user_id));
         })
         .catch((err) => {
            dispatch(setError(err.response ? err.response.data : err.message))
