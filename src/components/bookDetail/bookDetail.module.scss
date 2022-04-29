@@ -1,0 +1,94 @@
+.bookDetail {
+  width: 1140px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  height: calc(100vh - 250px);
+
+  .bookInfo {
+    display: flex;
+    flex-direction: column;
+
+    .bookHeader {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+
+      h2 {
+        font-size: 28px;
+        line-height: 33px;
+      }
+    }
+
+    .bookBody {
+      display: flex;
+      justify-content: space-between;
+      /* flex-wrap: wrap; */
+      margin-bottom: 40px;
+
+      img {
+        width: 300px;
+        height: 200px;
+        margin-right: 40px;
+      }
+
+      .infoBlock {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 60px;
+
+        .infoIcons {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          svg {
+            margin-right: 5px;
+          }
+        }
+
+        .persons {
+          display: flex;
+
+          div {
+            margin-right: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .bookAudio {
+    display: flex;
+
+    .audiosSelect {
+      border: 1px solid black;
+      width: 35%;
+      height: 150px;
+      overflow-y: scroll;
+      scrollbar-color: rebeccapurple green;
+      scrollbar-width: thin;
+
+      ul {
+        li {
+          display: flex;
+          justify-content: space-between;
+          padding: 5px;
+
+          span:last-child {
+            text-align: right;
+          }
+        }
+      }
+    }
+
+    .player {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  --w-orange: #ff9900;
+  --border: 1px solid rgba(0, 0, 0, 0.4);
+  --black: rgba(0, 0, 0, 0.7);
+}
+
+.container {
+  width: 1140px;
+  margin: 0 auto;
+}
+
+section {
+  /* padding: 0 20% !important; */
+  margin-bottom: 30px;
+}
+
+body {
+  /* background: url(bg.jpg) no-repeat; */
+  background-size: 100%;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}
+
+.popularBooks {
+  border-radius: 6px;
+}
+
+.topText {
+  display: flex;
+  color: var(--black);
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: var(--border);
+}
+
+.booksList {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 450px;
+}
+
+.bookCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 220px;
+  background: rgb(248, 182, 83);
+  border-radius: 6px;
+  padding: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+.bookCard img {
+  width: 200px;
+}
+
+.bookCard:hover {
+  transform: scale(1.02);
+  background: rgba(248, 182, 83, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.bookCard p {
+  font-size: 16px;
+}
+
+.bookCard span {
+  display: block;
+  font-size: 14px;
+}
+
+.bookCard .btn {
+  font-size: 12px;
+  background: var(--silver-metallic);
+  padding: 5px 15px;
+  text-decoration: none;
+  border-radius: 4px;
+  color: #fff;
+}
+
+/* trend books list end */
+
+.circle {
+  --circle: 300px;
+  width: var(--circle);
+  height: var(--circle);
+  background: var(--w-orange);
+  opacity: 0.7;
+  position: absolute;
+  border-radius: 50%;
+}
+
+@media (max-width: 480px) {
+  .content {
+    max-width: 100%;
+  }
+
+  .content .navbar {
+    width: 100%;
+  }
+
+  section {
+    padding: 0 20px !important;
+    margin-bottom: 10px;
+  }
+
+  .navbar {
+    padding: 10px 0 !important;
+  }
+
+  .navbar .logo span {
+    font-size: 18px;
+  }
+
+  .navbar .searchBox {
+    display: none;
+  }
+
+  .navbar .icons a {
+    margin-left: 10px;
+    padding: 8px 14px;
+    font-size: 1em;
+  }
+
+  .popularBooks h3 {
+    font-size: 16px;
+    width: 100%;
+  }
+
+  .popularBooks .booksList {
+    justify-content: center;
+  }
+
+  .popularBooks .booksList .bookCard:nth-child(-n + 3) {
+    display: none;
+  }
+
+  .c2 {
+    display: none;
+  }
+}

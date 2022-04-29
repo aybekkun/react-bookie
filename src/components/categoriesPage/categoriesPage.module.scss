@@ -1,0 +1,28 @@
+.categoriesPage {
+  width: 1140px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.booksList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 4vw;
+
+  .bookCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 220px;
+    background: rgb(248, 182, 83);
+    border-radius: 6px;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    img {
+      width: 200px;
+    }
+  }
+}

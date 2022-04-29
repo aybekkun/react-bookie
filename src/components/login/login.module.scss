@@ -1,0 +1,70 @@
+.loginPage {
+  width: 1140px;
+  margin: 0 auto;
+  height: calc(100vh - 300px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .loginInner {
+    width: 30%;
+    // height: 65%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      p {
+        font-size: 14px;
+      }
+
+      .inputContainer {
+        border-bottom: 2px solid #ff9900;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin: 0 10px;
+          margin-bottom: 10px;
+        }
+
+        input {
+          border: none;
+          outline: none;
+          width: 100%;
+          background: transparent;
+        }
+      }
+    }
+
+    .button {
+      color: #fff;
+      padding: 5px 15px;
+      border-radius: 20px;
+      background: #ff9900;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: 0.4s;
+      font-size: 16px;
+      border: none;
+      outline: none;
+    }
+
+    .btnReg {
+      color: blue;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+}

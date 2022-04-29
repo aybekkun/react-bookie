@@ -1,0 +1,42 @@
+.container {
+  border-top: 1px solid #0606065e;
+
+  .footer {
+    height: 100px;
+    width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    img {
+      height: 60px;
+      width: 190px;
+      border-radius: 5px;
+    }
+
+    .icon {
+      svg {
+        margin-right: 10px;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+
+    .contacts {
+      p {
+        margin-bottom: 5px;
+        font-size: 15px;
+      }
+    }
+
+    .about {
+      p {
+        margin-bottom: 5px;
+        font-size: 15px;
+      }
+    }
+  }
+}
