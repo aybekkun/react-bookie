@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchCategoryBooks } from "./categoryBooksActionCreator";
+import { fetchCategoryBooks } from "../actionCreators/categoryBooksActionCreator";
 
 interface CategoryBooksState {
   id: any;

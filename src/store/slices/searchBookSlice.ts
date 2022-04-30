@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchSearchBooks } from "./searchBookActionCreator";
+import { fetchSearchBooks } from "../actionCreators/searchBookActionCreator";
 
 interface SearchBooksState {
   books: any;

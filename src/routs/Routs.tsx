@@ -4,7 +4,6 @@ import CategoriesPage from "../components/categoriesPage/categoriesPage";
 import LogIn from "../components/login/login";
 import Registration from "../components/registration/registration";
 import Main from "../pages/main/main";
-import "../style/dark.scss";
 
 export const LOGIN_PAGE = "/login";
 export const REGISTRATION_PAGE = "/registration";

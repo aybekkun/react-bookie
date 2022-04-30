@@ -8,14 +8,16 @@ import {
   FormGroup,
   TextField,
 } from "@material-ui/core";
-import { login } from "../../store/loginSlice";
+import { login } from "../../store/slices/loginSlice";
 import Preloader from "../preloader/preloader";
+//@ts-ignore
 import styles from "./login.module.scss";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+
 import { useNavigate } from "react-router-dom";
 import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
 import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
 import { Https, Phone } from "@material-ui/icons";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 export type valuesErrorsType = { phone: string; password: string };
 

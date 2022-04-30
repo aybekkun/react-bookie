@@ -2,9 +2,9 @@ import { AccessTime, FavoriteBorder, Person } from "@material-ui/icons";
 import React, { useEffect } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-import bookImg from "../../assets/img/romantic-book.jpg";
-import { fetchBookDetail } from "./../../store/bookDetailActionCreator";
-import { useAppDispatch, useAppSelector } from "./../../store/hooks";
+import { fetchBookDetail } from "../../store/actionCreators/bookDetailActionCreator";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+//@ts-ignore
 import styles from "./bookDetail.module.scss";
 
 const BookDetail = () => {
@@ -15,15 +15,19 @@ const BookDetail = () => {
 
   useEffect(() => {
     dispatch(fetchBookDetail(id));
-  }, []);
+  }, [id]);
 
   console.log(book?.data);
+
+  if (error) {
+    return <div>Ошибка стр книги</div>;
+  }
 
   return (
     <div className={styles.bookDetail}>
       <div className={styles.bookInfo}>
         <div className={styles.bookHeader}>
-          <h2>{book && book?.data.book.name}</h2>
+          <h2>{book && book?.data?.book.name}</h2>
           <div>
             <FavoriteBorder />
           </div>
@@ -73,9 +77,9 @@ const BookDetail = () => {
 
         <div className={styles.player}>
           <AudioPlayer
-            src={book && book?.data.audios[0].audio}
-            // onPlay={(e) => console.log("onPlay")}
-            // other props here
+          // src={book && book?.data.audios[0].audio}
+          // onPlay={(e) => console.log("onPlay")}
+          // other props here
           />
         </div>
       </div>

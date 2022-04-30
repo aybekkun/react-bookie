@@ -8,10 +8,10 @@ import {
   subCategoriesAPI,
 } from "./../services/categoriesService";
 import { mainAPI } from "./../services/mainService";
-import bookDetailReducer from "./bookDetailSlice";
-import loginReducer from "./loginSlice";
-import categoryBooksReducer from "./categoryBooksSlice";
-import searchBooksReducer from "./searchBookSlice";
+import bookDetailReducer from "./slices/bookDetailSlice";
+import loginReducer from "./slices/loginSlice";
+import categoryBooksReducer from "./slices/categoryBooksSlice";
+import searchBooksReducer from "./slices/searchBookSlice";
 import { searchAPI } from "../services/searchService";
 
 const rootReducer = combineReducers({

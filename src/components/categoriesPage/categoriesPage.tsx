@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
-import { bookDetailSlice } from "../../store/bookDetailSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { bookDetailSlice } from "../../store/slices/bookDetailSlice";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import Pagination from "../UI/pagination/pagination";
-import { fetchCategoryBooks } from "./../../store/categoryBooksActionCreator";
-import { categoryBooksSlice } from "./../../store/categoryBooksSlice";
-import styles from "./categoriesPage.module.scss";
+import { categoryBooksSlice } from "../../store/slices/categoryBooksSlice";
+import { fetchCategoryBooks } from "../../store/actionCreators/categoryBooksActionCreator";
+//@ts-ignore
+import styles from './categoriesPage.module.scss';
+
 
 const CategoriesPage = () => {
   const dispatch = useAppDispatch();

@@ -1,6 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { $authHost } from "../http";
+import { $authHost } from "../../http";
+
 
 interface FetchCategoryBooksProps {
   id: number;

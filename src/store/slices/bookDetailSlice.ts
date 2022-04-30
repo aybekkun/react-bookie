@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchBookDetail } from "./bookDetailActionCreator";
+import { fetchBookDetail } from "../actionCreators/bookDetailActionCreator";
 import { PayloadAction } from "@reduxjs/toolkit";
 
 interface BookDetailState {

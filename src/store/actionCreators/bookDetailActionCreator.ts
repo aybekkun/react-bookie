@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { $authHost } from "../http";
+import { $authHost } from "../../http";
 
 export const fetchBookDetail = createAsyncThunk(
   'bookDetail/fetchBookDetail',

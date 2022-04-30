@@ -1,20 +1,11 @@
-import React, { useEffect, useState } from "react";
 import { FormikErrors, useFormik } from "formik";
-import Link from "@mui/material/Link";
-import {
-  FormGroup,
-  TextField,
-  Grid,
-  FormLabel,
-  FormControl,
-  Button,
-} from "@material-ui/core";
-
-import styles from "./registration.module.scss";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { registration } from "../../store/loginSlice";
-import Preloader from "../preloader/preloader";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { registration } from "../../store/slices/loginSlice";
+import Preloader from "../preloader/preloader";
+//@ts-ignore
+import styles from "./registration.module.scss";
 
 export type valuesErrorsType = {
   name: string;

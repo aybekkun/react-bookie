@@ -1,6 +1,8 @@
 import { Instagram, Telegram, YouTube } from "@material-ui/icons";
 import React from "react";
+//@ts-ignore
 import styles from "./footer.module.scss";
+//@ts-ignore
 import googlePlay from "../../assets/img/google-play.jpg";
 
 const Footer = () => {
