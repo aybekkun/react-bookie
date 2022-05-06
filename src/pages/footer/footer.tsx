@@ -10,7 +10,7 @@ const Footer = () => {
     <section className={styles.container}>
       <footer className={styles.footer}>
         <div className={styles.contacts}>
-          <p>Контакты: +998 97 241 19 97</p>
+          <p>Контакты: +998 93 362 57 44</p>
           <p>&copy; 2022 Bookie. | Разработка</p>
         </div>
 
@@ -35,8 +35,8 @@ const Footer = () => {
         </div>
 
         <div className={styles.about}>
-          <p>О нас</p>
-          <p>Отзыв</p>
+          <p>Qayırqomlıq</p>
+          <p></p>
         </div>
       </footer>
     </section>

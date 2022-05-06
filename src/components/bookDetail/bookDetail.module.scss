@@ -2,6 +2,7 @@
   width: 1140px;
   margin: 0 auto;
   margin-bottom: 40px;
+  margin-top: 40px;
   height: calc(100vh - 250px);
 
   .bookInfo {
@@ -12,11 +13,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
 
       h2 {
         font-size: 28px;
         line-height: 33px;
+      }
+
+      svg {
+        width: 30px;
+        height: 30px;
       }
     }
 
@@ -32,11 +38,19 @@
         margin-right: 40px;
       }
 
+      .bookDescription {
+        font-size: 17px;
+        line-height: 28px;
+        height: 80%;
+      }
+
       .infoBlock {
         display: flex;
         justify-content: space-between;
-        align-items: center;
-        margin-top: 60px;
+        align-items: flex-end;
+        flex-direction: row;
+        height: 20%;
+        // margin-top: 60px;
 
         .infoIcons {
           display: flex;
@@ -63,11 +77,12 @@
     display: flex;
 
     .audiosSelect {
-      border: 1px solid black;
+      border: 1px solid rgb(116, 116, 116);
+      border-radius: 5px;
       width: 35%;
       height: 150px;
       overflow-y: scroll;
-      scrollbar-color: rebeccapurple green;
+      scrollbar-color: rgb(116, 116, 116) green;
       scrollbar-width: thin;
 
       ul {
@@ -83,12 +98,17 @@
       }
     }
 
-    .player {
+    .playerContainer {
       width: 60%;
       display: flex;
       justify-content: center;
       align-items: center;
       margin: 0 auto;
+
+      .audioPlayer {
+        border: 1px solid rgb(116, 116, 116);
+        background-color: #eeeeee;
+      }
     }
   }
 }

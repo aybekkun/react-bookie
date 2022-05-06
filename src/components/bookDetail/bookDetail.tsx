@@ -1,13 +1,16 @@
 import { AccessTime, FavoriteBorder, Person } from "@material-ui/icons";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
 import { fetchBookDetail } from "../../store/actionCreators/bookDetailActionCreator";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 //@ts-ignore
 import styles from "./bookDetail.module.scss";
+import { Skeleton } from "@mui/material";
+import AudioPlayerComponent from "./audioPlayer";
 
 const BookDetail = () => {
+  const [song, setSong] = useState<number>(0);
   const dispatch = useAppDispatch();
   const { book, id, isLoading, error } = useAppSelector(
     (state) => state.bookDetailReducer
@@ -17,7 +20,7 @@ const BookDetail = () => {
     dispatch(fetchBookDetail(id));
   }, [id]);
 
-  console.log(book?.data);
+  console.log(book);
 
   if (error) {
     return <div>Ошибка стр книги</div>;
@@ -28,9 +31,7 @@ const BookDetail = () => {
       <div className={styles.bookInfo}>
         <div className={styles.bookHeader}>
           <h2>{book && book?.data?.book.name}</h2>
-          <div>
-            <FavoriteBorder />
-          </div>
+          <FavoriteBorder />
         </div>
 
         <div className={styles.bookBody}>
@@ -66,7 +67,7 @@ const BookDetail = () => {
             {book &&
               book?.data.audios.map((item: any, index: number) => {
                 return (
-                  <li key={item.id}>
+                  <li key={item.id} onClick={() => setSong(index)}>
                     <span>{item.title}</span>
                     <span>23:12</span>
                   </li>
@@ -75,12 +76,8 @@ const BookDetail = () => {
           </ul>
         </div>
 
-        <div className={styles.player}>
-          <AudioPlayer
-          // src={book && book?.data.audios[0].audio}
-          // onPlay={(e) => console.log("onPlay")}
-          // other props here
-          />
+        <div className={styles.playerContainer}>
+          <AudioPlayerComponent song={song} />
         </div>
       </div>
     </div>

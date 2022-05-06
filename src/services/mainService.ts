@@ -3,7 +3,7 @@ import { IMain } from "../models/IMain";
 
 export const mainAPI = createApi({
   reducerPath: "mainAPI",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://bookie.eco-study.uz" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://bookie.eco-study.uz" }),
   tagTypes: ["Post"],
   endpoints: (build) => ({
     fetchAllMainBooks: build.query<IMain, null>({

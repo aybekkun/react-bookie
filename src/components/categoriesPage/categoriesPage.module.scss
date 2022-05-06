@@ -2,6 +2,7 @@
   width: 1140px;
   margin: 0 auto;
   margin-bottom: 40px;
+  // height: calc(100vh - 250px);
 }
 
 .booksList {
@@ -10,19 +11,43 @@
   grid-gap: 4vw;
 
   .bookCard {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
     width: 220px;
-    background: rgb(248, 182, 83);
+    border: 1px solid rgb(187, 187, 187);
     border-radius: 6px;
     padding: 15px;
     cursor: pointer;
     transition: 0.3s;
 
-    img {
-      width: 200px;
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 5px;
+
+      span {
+        display: block;
+        font-size: 12px;
+      }
+    }
+
+    p {
+      font-size: 14px;
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      img {
+        width: 200px;
+        height: 300px;
+      }
     }
   }
+}
+
+.pagination {
+  margin: auto 0;
 }

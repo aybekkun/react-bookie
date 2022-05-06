@@ -40,7 +40,7 @@ export const categoryBooksSlice = createSlice({
     [fetchCategoryBooks.pending.type]: (state) => {
       state.isLoading = true;
     },
-    [fetchCategoryBooks.pending.type]: (
+    [fetchCategoryBooks.rejected.type]: (
       state,
       action: PayloadAction<string>
     ) => {

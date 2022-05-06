@@ -26,7 +26,7 @@ export const searchBooksSlice = createSlice({
     [fetchSearchBooks.pending.type]: (state) => {
       state.isLoading = true;
     },
-    [fetchSearchBooks.pending.type]: (state, action: PayloadAction<string>) => {
+    [fetchSearchBooks.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },

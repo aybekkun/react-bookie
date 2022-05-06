@@ -33,7 +33,7 @@ export const bookDetailSlice = createSlice({
     [fetchBookDetail.pending.type]: (state) => {
       state.isLoading = true;
     },
-    [fetchBookDetail.pending.type]: (state, action: PayloadAction<string>) => {
+    [fetchBookDetail.rejected.type]: (state, action: PayloadAction<string>) => {
       state.isLoading = false;
       state.error = action.payload;
     },

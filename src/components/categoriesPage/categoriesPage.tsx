@@ -6,8 +6,8 @@ import Pagination from "../UI/pagination/pagination";
 import { categoryBooksSlice } from "../../store/slices/categoryBooksSlice";
 import { fetchCategoryBooks } from "../../store/actionCreators/categoryBooksActionCreator";
 //@ts-ignore
-import styles from './categoriesPage.module.scss';
-
+import styles from "./categoriesPage.module.scss";
+import CategorySkeleton from "./../skeleton/categorySkeleton/categorySkeleton";
 
 const CategoriesPage = () => {
   const dispatch = useAppDispatch();
@@ -23,18 +23,23 @@ const CategoriesPage = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchCategoryBooks({ id }));
+    dispatch(fetchCategoryBooks({ id, page }));
   }, [id, page]);
 
-  useEffect(() => {
-    dispatch(fetchCategoryBooks({ id, page }));
-  }, [page]);
+  console.log(books);
 
-  console.log(books.data);
-  console.log(page);
+  if (isLoading) {
+    return (
+      <div className={styles.categoriesPage}>
+        <CategorySkeleton />
+        <CategorySkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.categoriesPage}>
+      <h2></h2>
       <div className={styles.booksList}>
         {books &&
           books.data.data.map((item: any, index: number) => {
@@ -50,16 +55,19 @@ const CategoriesPage = () => {
                 <p>{item.name}</p>
                 <div>
                   <span>2min</span>
+                  <span>Pushkin</span>
                 </div>
               </div>
             );
           })}
       </div>
-      <Pagination
-        page={page}
-        changePage={changePage}
-        totalPages={books && books?.data.last_page}
-      />
+      <div className={styles.pagination}>
+        <Pagination
+          page={page}
+          changePage={changePage}
+          totalPages={books && books?.data.last_page}
+        />
+      </div>
     </div>
   );
 };

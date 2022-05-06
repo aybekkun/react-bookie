@@ -30,10 +30,6 @@ const HeaderNavbar = () => {
 
   console.log(books);
 
-  if (error) {
-    return <div>Ошибка</div>;
-  }
-
   return (
     <div className={`${styles.navbarBg} ${styles.container}`}>
       <div className={styles.navbar}>
@@ -60,13 +56,15 @@ const HeaderNavbar = () => {
                 {books &&
                   books?.data.map((item: any, index: number) => {
                     return (
-                      <NavLink
-                        to={`/category/${item.sub_category_id}/book/${item.id}`}
-                        onClick={() => dispatch(setIdBook(item.id))}
-                        key={item.id}
-                      >
-                        <li>{item.name}</li>
-                      </NavLink>
+                      <li className={styles.searchItem} key={item.id}>
+                        <NavLink
+                          to={`/book/${item.id}`}
+                          onClick={() => dispatch(setIdBook(item.id))}
+                        >
+                          <img src={item.images} alt={item.name} />
+                          <span>{item.name}</span>
+                        </NavLink>
+                      </li>
                     );
                   })}
               </ul>

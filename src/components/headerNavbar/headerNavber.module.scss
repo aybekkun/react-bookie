@@ -73,6 +73,7 @@
     .searchResults {
       position: relative;
       max-width: 100%;
+      border-radius: 5px;
 
       ul {
         max-width: 100%;
@@ -81,6 +82,30 @@
         background-color: #fff;
         right: 0;
         left: 0;
+
+        .searchItem {
+          padding: 5px;
+
+          a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+          }
+
+          img {
+            width: 20px;
+            height: 30px;
+          }
+
+          span {
+            margin-left: 5px;
+          }
+        }
+
+        .searchItem:hover {
+          background-color: #ff9900;
+        }
       }
     }
   }

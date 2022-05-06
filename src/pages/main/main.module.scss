@@ -1,4 +1,21 @@
 .aboutBookie {
+  width: 1140px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 80px;
+  margin-top: 60px;
 
-  
+  div {
+    width: 55%;
+
+    p {
+      font-size: 15px;
+    }
+  }
+
+  iframe {
+    width: 40%;
+    height: 300px;
+  }
 }

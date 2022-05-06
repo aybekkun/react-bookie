@@ -3,7 +3,7 @@ import { ISearch } from "../models/ISearch";
 
 export const searchAPI = createApi({
   reducerPath: "searchAPI",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://bookie.eco-study.uz" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://bookie.eco-study.uz" }),
   tagTypes: ["Post"],
   endpoints: (build) => ({
     fetchSearchBooks: build.query<ISearch, string>({

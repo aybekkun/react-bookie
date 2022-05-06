@@ -15,6 +15,7 @@
 }
 
 .categories {
+  font-size: 16px;
   background: linear-gradient(#ff9900, #f3c98b);
 
   .categoriesInner {
@@ -22,26 +23,22 @@
     justify-content: space-between;
     align-items: center;
     list-style: none;
-    padding: 5px 0;
-    font-size: 16px;
-    font-weight: 700;
-    color: #474747;
-    margin-bottom: 30px;
-
-    .subLinks {
-      a {
-        font-size: 16px;
-        font-weight: 700;
-        color: #474747;
-        text-decoration: none;
-      }
-    }
 
     .btn {
       color: inherit;
       font-size: 16px;
       font-weight: 700;
       text-transform: capitalize;
+    }
+
+    .category {
+      font-weight: 700;
+      padding: 10px;
+      color: #474747;
+    }
+
+    .category:hover {
+      background-color: #935a05;
     }
   }
 
@@ -50,3 +47,51 @@
     text-decoration: none;
   }
 }
+
+.subLinks {
+  a {
+    font-weight: 700;
+    color: #474747;
+    text-decoration: none;
+  }
+}
+
+.dropbtn {
+  font-weight: 700;
+  color: #474747;
+  background-color: inherit;
+  // padding: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownContent a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdownContent a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+}
+
+// .dropdown:hover .dropbtn {background-color: #3e8e41;}

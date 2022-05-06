@@ -36,35 +36,83 @@ const HeaderCategories = () => {
   };
 
   return (
+    // <div className={styles.categories}>
+    //   <ul className={`${styles.categoriesInner} ${styles.container}`}>
+    //     {category &&
+    //       category?.data.map((item: any, index: number) => {
+    //         return (
+    //           <div key={item.id} className={styles.category}>
+    //             {subCategory?.data[index].length > 1 ? (
+    //               <li>
+    //                 <Button
+    //                   id="fade-button"
+    //                   aria-controls={open ? "fade-menu" : undefined}
+    //                   aria-haspopup="true"
+    //                   aria-expanded={open ? "true" : undefined}
+    //                   onClick={handleClick}
+    //                   className={styles.btn}
+    //                 >
+    //                   {item.name}
+    //                 </Button>
+
+    //                 <Menu
+    //                   id="fade-menu"
+    //                   MenuListProps={{
+    //                     "aria-labelledby": "fade-button",
+    //                   }}
+    //                   anchorEl={anchorEl}
+    //                   open={open}
+    //                   onClose={handleClose}
+    //                   TransitionComponent={Fade}
+    //                   className={styles.subLinks}
+    //                 >
+    //                   {subCategory?.data[index].map(
+    //                     (sub: any, index: number) => {
+    //                       return (
+    //                         <NavLink
+    //                           to={`category/${sub.id}`}
+    //                           key={sub.id}
+    //                           onClick={() => setPageAndIdCategory(sub.id)}
+    //                         >
+    //                           <MenuItem onClick={handleClose}>
+    //                             {sub.name}
+    //                           </MenuItem>
+    //                         </NavLink>
+    //                       );
+    //                     }
+    //                   )}
+    //                 </Menu>
+    //               </li>
+    //             ) : (
+    //               <li>
+    //                 <NavLink
+    //                   to={`category/${item.id}`}
+    //                   key={item.id}
+    //                   onClick={() => setPageAndIdCategory(item.id)}
+    //                 >
+    //                   {item.name}
+    //                 </NavLink>
+    //               </li>
+    //             )}
+    //           </div>
+    //         );
+    //       })}
+    //   </ul>
+    // </div>
     <div className={styles.categories}>
       <ul className={`${styles.categoriesInner} ${styles.container}`}>
         {category &&
           category?.data.map((item: any, index: number) => {
             return (
-              <div key={item.id}>
+              <div
+                key={item.id}
+                className={`${styles.category} ${styles.dropdown}`}
+              >
                 {subCategory?.data[index].length > 1 ? (
                   <li>
-                    <Button
-                      id="fade-button"
-                      aria-controls={open ? "fade-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                      onClick={handleClick}
-                      className={styles.btn}
-                    >
-                      {item.name}
-                    </Button>
+                    <button className={styles.dropbtn}>{item.name}</button>
 
-                    <Menu
-                      id="fade-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "fade-button",
-                      }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      TransitionComponent={Fade}
-                    >
+                    <div className={styles.dropdownContent}>
                       {subCategory?.data[index].map(
                         (sub: any, index: number) => {
                           return (
@@ -72,25 +120,24 @@ const HeaderCategories = () => {
                               to={`category/${sub.id}`}
                               key={sub.id}
                               onClick={() => setPageAndIdCategory(sub.id)}
-                              className={styles.subLinks}
                             >
-                              <MenuItem onClick={handleClose}>
-                                {sub.name}
-                              </MenuItem>
+                              {sub.name}
                             </NavLink>
                           );
                         }
                       )}
-                    </Menu>
+                    </div>
                   </li>
                 ) : (
-                  <NavLink
-                    to={`category/${item.id}`}
-                    key={item.id}
-                    onClick={() => setPageAndIdCategory(item.id)}
-                  >
-                    <li>{item.name}</li>
-                  </NavLink>
+                  <li>
+                    <NavLink
+                      to={`category/${item.id}`}
+                      key={item.id}
+                      onClick={() => setPageAndIdCategory(item.id)}
+                    >
+                      {item.name}
+                    </NavLink>
+                  </li>
                 )}
               </div>
             );

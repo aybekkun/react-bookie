@@ -71,7 +71,10 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
                       </NavLink>
 
                       <p>{item.name}</p>
-                      <span>2min</span>
+                      <div>
+                        <span>2min</span>
+                        <span>Pushkin</span>
+                      </div>
                     </div>
                   </SwiperSlide>
                 );

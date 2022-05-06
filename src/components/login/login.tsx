@@ -1,23 +1,13 @@
-import React, { useEffect } from "react";
+import { Https, Phone } from "@material-ui/icons";
 import { FormikErrors, useFormik } from "formik";
-import Grid from "@material-ui/core/Grid";
-import {
-  FormControl,
-  Button,
-  FormLabel,
-  FormGroup,
-  TextField,
-} from "@material-ui/core";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { login } from "../../store/slices/loginSlice";
 import Preloader from "../preloader/preloader";
 //@ts-ignore
 import styles from "./login.module.scss";
 
-import { useNavigate } from "react-router-dom";
-import EnhancedEncryptionIcon from "@mui/icons-material/EnhancedEncryption";
-import LocalPhoneIcon from "@mui/icons-material/LocalPhone";
-import { Https, Phone } from "@material-ui/icons";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 
 export type valuesErrorsType = { phone: string; password: string };
 
@@ -72,8 +62,8 @@ const LogIn = () => {
               <div className={styles.inputContainer}>
                 <Phone />
                 <input
-                  placeholder="+998 --- --- ----"
-                  // {...formik.getFieldProps("phone")}
+                  placeholder="998 --- --- ----"
+                  {...formik.getFieldProps("phone")}
                 />
               </div>
 
@@ -86,7 +76,7 @@ const LogIn = () => {
                 <input
                   type="password"
                   placeholder="Parolin`iz"
-                  // {...formik.getFieldProps("password")}
+                  {...formik.getFieldProps("password")}
                 />
               </div>
 

@@ -12,7 +12,7 @@ interface PaginationProps {
 const Pagination: FC<PaginationProps> = ({ page, changePage, totalPages }) => {
   let pagesArray = getPagesArray(totalPages);
   return (
-    <div className="page__wrapper">
+    <div className={styles.page__wrapper}>
       {pagesArray.map((p) => (
         <span
           onClick={() => changePage(p)}

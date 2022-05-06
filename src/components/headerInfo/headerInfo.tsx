@@ -1,16 +1,18 @@
 import { Instagram, Phone, Telegram, YouTube } from "@material-ui/icons";
-import React from "react";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../../hooks/hooks";
 import { LOGIN_PAGE, REGISTRATION_PAGE } from "../../routs/Routs";
 //@ts-ignore
 import styles from "./headerInfo.module.scss";
 
 const HeaderInfo = () => {
+  const { isUserLogin } = useAppSelector((state) => state.loginReducer);
+
   return (
     <div className={`${styles.headerInfo} ${styles.container}`}>
-      <a href="tel:972411997" className={styles.headerContact}>
+      <a href="tel:933625744" className={styles.headerContact}>
         <Phone />
-        <span>+998 97 241 19 97</span>
+        <span>+998 93 362 57 44</span>
       </a>
 
       <div className={styles.headerRight}>
@@ -31,15 +33,20 @@ const HeaderInfo = () => {
             <Telegram />
           </a>
         </div>
-        <div className={styles.headerAuth}>
-          <NavLink to={LOGIN_PAGE}>
-            <span>Kiriw</span>
-          </NavLink>
-          /
-          <NavLink to={REGISTRATION_PAGE}>
-            <span>Registraciya</span>
-          </NavLink>
-        </div>
+
+        {isUserLogin ? (
+          <div>Accaunt</div>
+        ) : (
+          <div className={styles.headerAuth}>
+            <NavLink to={LOGIN_PAGE}>
+              <span>Kiriw</span>
+            </NavLink>
+            /
+            <NavLink to={REGISTRATION_PAGE}>
+              <span>Registraciya</span>
+            </NavLink>
+          </div>
+        )}
       </div>
     </div>
   );
