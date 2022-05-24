@@ -1,12 +1,27 @@
 import { Instagram, Phone, Telegram, YouTube } from "@material-ui/icons";
+import { Logout } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
-import { useAppSelector } from "../../hooks/hooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { LOGIN_PAGE, REGISTRATION_PAGE } from "../../routs/Routs";
+import { logout, setIsUserLogin } from "../../store/slices/loginSlice";
 //@ts-ignore
 import styles from "./headerInfo.module.scss";
+import { useEffect, useState } from "react";
 
 const HeaderInfo = () => {
   const { isUserLogin } = useAppSelector((state) => state.loginReducer);
+  const dispatch = useAppDispatch();
+  const [isLogOut, setIsLogOut] = useState<boolean>(false);
+
+  const token = JSON.stringify(localStorage.getItem("token") || {});
+
+  const onLogOut = () => {
+    dispatch(logout(token));
+  };
+
+useEffect(() => {}, [isUserLogin]);
+
+  console.log(isUserLogin);
 
   return (
     <div className={`${styles.headerInfo} ${styles.container}`}>
@@ -35,7 +50,9 @@ const HeaderInfo = () => {
         </div>
 
         {isUserLogin ? (
-          <div>Accaunt</div>
+          <div className={styles.logout} onClick={onLogOut}>
+            <Logout /> Shig'iw
+          </div>
         ) : (
           <div className={styles.headerAuth}>
             <NavLink to={LOGIN_PAGE}>

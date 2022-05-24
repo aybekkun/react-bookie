@@ -21,7 +21,7 @@ export const subCategoriesAPI = createApi({
   tagTypes: ["Post"],
   endpoints: (build) => ({
     fetchSubCategories: build.query<ICategories, any>({
-      query: (id) => ({
+      query: () => ({
         url: `/api/subcategory`,
       }),
       providesTags: (result) => ["Post"],

@@ -1,5 +1,5 @@
 import { FormikErrors, useFormik } from "formik";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { registration } from "../../store/slices/loginSlice";
@@ -15,9 +15,7 @@ export type valuesErrorsType = {
 
 const Registration = () => {
   const [isDisabled, setIsDisabled] = useState(true);
-  const { isLoading } = useAppSelector((state) => state.loginReducer);
-  const { user } = useAppSelector((state) => state.loginReducer);
-  const { error } = useAppSelector((state) => state.loginReducer);
+  const { isLoading, user, error } = useAppSelector((state) => state.loginReducer);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 

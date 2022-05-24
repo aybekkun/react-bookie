@@ -1,10 +1,12 @@
 .loginPage {
-  width: 1140px;
+  max-width: 1440px;
+  min-width: 1024px;
   margin: 0 auto;
   height: calc(100vh - 300px);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 
   .loginInner {
     width: 30%;
@@ -16,6 +18,7 @@
 
     h2 {
       text-align: center;
+      font-size: 25px;
       margin-bottom: 25px;
     }
 
@@ -24,7 +27,7 @@
       flex-direction: column;
 
       p {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .inputContainer {
@@ -65,6 +68,86 @@
       color: blue;
       text-align: center;
       cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .loginPage {
+    max-width: 1003px;
+    min-width: 769px;
+
+    .loginInner {
+      width: 40%;
+
+      h2 {
+        font-size: 23px;
+      }
+
+      form {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .button {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .loginPage {
+    max-width: 748px;
+    min-width: 420px;
+
+    .loginInner {
+      width: 60%;
+
+      h2 {
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      form {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .button {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .loginPage {
+    max-width: 409px;
+    min-width: 320px;
+    padding: 0 5px;
+    margin: 15px 0;
+
+    .loginInner {
+      width: 80%;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+
+      form {
+        p {
+          font-size: 13px;
+        }
+      }
+
+      .button {
+        font-size: 13px;
+        margin: 5px 0;
+      }
     }
   }
 }

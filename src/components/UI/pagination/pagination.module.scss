@@ -17,4 +17,40 @@
   justify-content: center;
   align-items: center;
   margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .page {
+    padding: 4px 11px;
+  }
+
+  .page__wrapper {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .page {
+    font-size: 13px;
+    padding: 2px 9px;
+  }
+
+  .page__wrapper {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .page {
+    font-size: 11px;
+    padding: 0 6px;
+  }
+
+  .page__wrapper {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }

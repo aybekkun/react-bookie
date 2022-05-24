@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import AudioPlayer from "react-h5-audio-player";
 import { useAppSelector } from "../../hooks/hooks";
 //@ts-ignore
@@ -11,12 +11,10 @@ interface AudioPlayerProps {
 const AudioPlayerComponent: FC<AudioPlayerProps> = ({ song }) => {
   const { book } = useAppSelector((state) => state.bookDetailReducer);
 
-  console.log(song);
-
   return (
     <AudioPlayer
       className={styles.audioPlayer}
-      src={book && book?.data.audios[song].audio}
+      // src={book && book?.data.audios[song].audio}
     />
   );
 };

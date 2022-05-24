@@ -44,7 +44,7 @@ export const login =
     api
       .login(phone, password)
       .then((res) => {
-        console.log(res.data.data);
+        dispatch(setUser(res.data.data.user_id));
         localStorage.setItem("token", res.data.data.token);
         dispatch(setIsUserLogin(true));
       })
@@ -71,6 +71,9 @@ export const logout =
         dispatch(setError(err.response ? err.response.data : err.message));
       })
       .finally(() => {
+        localStorage.removeItem("token");
+        dispatch(setUser(null));
+        dispatch(setIsUserLogin(false));
         dispatch(setIsLoading(false));
       });
   };

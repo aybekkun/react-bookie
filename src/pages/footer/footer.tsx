@@ -1,17 +1,18 @@
 import { Instagram, Telegram, YouTube } from "@material-ui/icons";
-import React from "react";
-//@ts-ignore
-import styles from "./footer.module.scss";
+import { NavLink } from "react-router-dom";
 //@ts-ignore
 import googlePlay from "../../assets/img/google-play.jpg";
+import { DONATE, REVIEW } from "../../routs/Routs";
+//@ts-ignore
+import styles from "./footer.module.scss";
 
 const Footer = () => {
   return (
     <section className={styles.container}>
       <footer className={styles.footer}>
-        <div className={styles.contacts}>
-          <p>Контакты: +998 93 362 57 44</p>
-          <p>&copy; 2022 Bookie. | Разработка</p>
+        <div className={styles.about}>
+          <NavLink to={DONATE}>Qayırqomlıq</NavLink>
+          <NavLink to={REVIEW}>Pikir</NavLink>
         </div>
 
         <img src={googlePlay} alt="google-play" />
@@ -34,9 +35,9 @@ const Footer = () => {
           </a>
         </div>
 
-        <div className={styles.about}>
-          <p>Qayırqomlıq</p>
-          <p></p>
+        <div className={styles.contacts}>
+          <p>Контакты: +998 93 362 57 44</p>
+          <p>&copy; 2022 Bookie. | Разработка</p>
         </div>
       </footer>
     </section>

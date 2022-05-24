@@ -1,16 +1,18 @@
-import { Favorite, Search, WatchLater } from "@material-ui/icons";
-import React, { ChangeEvent, useEffect, useState } from "react";
+import { Close, Favorite, Search, WatchLater } from "@material-ui/icons";
+import { ChangeEvent, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import useDebounce from "../../hooks/useDebounce";
 import { fetchSearchBooks } from "../../store/actionCreators/searchBookActionCreator";
 import { bookDetailSlice } from "../../store/slices/bookDetailSlice";
 //@ts-ignore
-import styles from "./headerNavber.module.scss";
+import styles from "./headerNavbar.module.scss";
+import { FAVORITES, LASTEST } from "./../../routs/Routs";
 
 const HeaderNavbar = () => {
   const dispatch = useAppDispatch();
   const [searchWord, setSearchWord] = useState<string>("");
+  const [visionSearch, setVisionSearch] = useState<boolean>(false);
   const { books, isLoading, error } = useAppSelector(
     (state) => state.searchBooksReducer
   );
@@ -20,15 +22,17 @@ const HeaderNavbar = () => {
     setSearchWord(event.target.value);
   };
 
+  const handleClickBook = (idBook: number) => {
+    dispatch(setIdBook(idBook));
+    setVisionSearch(false);
+  };
+
   const debouncedValue = useDebounce<string>(searchWord, 500);
 
   useEffect(() => {
-    if (searchWord.length > 2) {
-      dispatch(fetchSearchBooks(searchWord));
-    }
+    dispatch(fetchSearchBooks(searchWord));
+    setVisionSearch(true);
   }, [debouncedValue]);
-
-  console.log(books);
 
   return (
     <div className={`${styles.navbarBg} ${styles.container}`}>
@@ -45,6 +49,15 @@ const HeaderNavbar = () => {
               className={styles.searchBox}
               onChange={handleChange}
               value={searchWord}
+              onClick={() => setVisionSearch(true)}
+            />
+            <Close
+              className={
+                visionSearch
+                  ? `${styles.visible} ${styles.closeBtn}`
+                  : `${styles.hiden} ${styles.closeBtn}`
+              }
+              onClick={() => setSearchWord("")}
             />
             <button>
               <Search />
@@ -52,16 +65,20 @@ const HeaderNavbar = () => {
           </div>
           <div className={styles.searchResults}>
             {searchWord.length > 0 ? (
-              <ul>
+              <ul
+                className={
+                  visionSearch ? `${styles.visible}` : `${styles.hiden}`
+                }
+              >
                 {books &&
                   books?.data.map((item: any, index: number) => {
                     return (
                       <li className={styles.searchItem} key={item.id}>
                         <NavLink
                           to={`/book/${item.id}`}
-                          onClick={() => dispatch(setIdBook(item.id))}
+                          onClick={() => handleClickBook(item.id)}
                         >
-                          <img src={item.images} alt={item.name} />
+                          <img src={item.image} alt={item.name} />
                           <span>{item.name}</span>
                         </NavLink>
                       </li>
@@ -75,12 +92,12 @@ const HeaderNavbar = () => {
         </div>
 
         <div className={styles.icons}>
-          <a href="#">
+          <NavLink to={FAVORITES}>
             <Favorite />
-          </a>
-          <a href="#">
+          </NavLink>
+          <NavLink to={LASTEST}>
             <WatchLater />
-          </a>
+          </NavLink>
         </div>
       </div>
     </div>

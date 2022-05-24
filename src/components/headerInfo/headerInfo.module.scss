@@ -1,17 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  --w-orange: #ff9900;
-  --border: 1px solid rgba(0, 0, 0, 0.4);
-  --black: rgba(0, 0, 0, 0.7);
-}
-
 .container {
-  width: 1140px;
+  max-width: 1440px;
+  min-width: 1024px;
   margin: 0 auto;
+  padding: 0 10px;
 }
 
 .headerInfo {
@@ -21,6 +12,7 @@
   padding-top: 10px;
   font-weight: 700;
   color: #474747;
+  font-size: 18px;
 
   .headerContact {
     display: flex;
@@ -47,7 +39,20 @@
 
       a {
         color: inherit;
+
+        svg {
+          width: 30px;
+          height: 30px;
+          margin-right: 10px;
+        }
       }
+    }
+
+    .logout {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
 
       svg {
         margin-right: 5px;
@@ -55,15 +60,120 @@
     }
 
     .headerAuth {
-
       span {
-        margin-right: 5px;
-        margin-left: 5px;
+        margin-right: 10px;
+        margin-left: 10px;
       }
-      
+
       a {
         text-decoration: none;
         color: inherit;
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .container {
+    max-width: 1003px;
+    min-width: 769px;
+  }
+
+  .headerInfo {
+    font-size: 16px;
+
+    .headerContact {
+      span {
+        margin: 0 5px;
+      }
+    }
+
+    .headerRight {
+      .headerSocial {
+        margin-right: 25px;
+
+        a {
+          svg {
+            width: 25px;
+            height: 25px;
+            margin-right: 5px;
+          }
+        }
+      }
+
+      .headerAuth {
+        span {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 769px) {
+  .container {
+    max-width: 749px;
+    min-width: 420px;
+    margin: 0 auto;
+    padding: 0 10px;
+  }
+  .headerInfo {
+    font-size: 14px;
+    padding-top: 10px;
+
+    .headerContact {
+      span {
+        margin: 0 5px;
+      }
+    }
+
+    .headerRight {
+      .headerSocial {
+        display: none;
+      }
+
+      .headerAuth {
+        span {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .container {
+    max-width: 409px;
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0 5px;
+  }
+  .headerInfo {
+    font-size: 12px;
+    padding-top: 5px;
+
+    .headerContact {
+      svg {
+        width: 15px;
+        height: 15px;
+      }
+      span {
+        margin: 0 5px;
+      }
+    }
+
+    .headerRight {
+      .headerSocial {
+        display: none;
+      }
+
+      .headerAuth {
+        span {
+          margin-right: 5px;
+          margin-left: 5px;
+        }
       }
     }
   }

@@ -10,7 +10,9 @@
 }
 
 .container {
-  width: 1140px;
+  max-width: 1440px;
+  min-width: 1029px;
+  padding: 0 10px;
   margin: 0 auto;
 }
 
@@ -20,7 +22,7 @@
   .topText {
     display: flex;
     color: var(--black);
-    font-size: 20px;
+    font-size: 24px;
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: var(--border);
@@ -35,4 +37,99 @@
 
 .width {
   width: 100px;
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .skeletonThird {
+    display: none;
+  }
+
+  .popularBooks {
+    .booksList {
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .skeletonThird {
+    display: none;
+  }
+  .skeletonSecond {
+    display: none;
+  }
+
+  .container {
+    max-width: 1003px;
+    min-width: 769px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  .popularBooks {
+    .topText {
+      font-size: 20px;
+    }
+    .booksList {
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .skeletonThird {
+    display: none;
+  }
+  .skeletonSecond {
+    display: none;
+  }
+
+  .skeletonFirst {
+    display: none;
+  }
+
+  .container {
+    max-width: 748px;
+    min-width: 420px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  .popularBooks {
+    .topText {
+      font-size: 18px;
+    }
+    .booksList {
+      justify-content: space-around;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .skeletonThird {
+    display: none;
+  }
+  .skeletonSecond {
+    display: none;
+  }
+
+  .skeletonFirst {
+    display: none;
+  }
+
+  .container {
+    max-width: 409px;
+    min-width: 320px;
+    padding: 0 5px;
+    margin: 0 auto;
+  }
+
+  .popularBooks {
+    .topText {
+      font-size: 15px;
+    }
+    .booksList {
+      justify-content: space-around;
+    }
+  }
 }

@@ -1,5 +1,6 @@
-import { Skeleton, Stack } from "@mui/material";
-import React, { FC } from "react";
+import { FC } from "react";
+import Shimmer from "../../UI/skeleton/Shimmer";
+import SkeletonElement from "../../UI/skeleton/SkeletonElement";
 //@ts-ignore
 import styles from "./mainSkeleton.module.scss";
 
@@ -16,29 +17,50 @@ const MainSceleton: FC<MainSkeletonProp> = ({ text }) => {
         </div>
 
         <div className={styles.booksList}>
-          <Stack spacing={1}>
-            <Skeleton variant="rectangular" width={220} height={330} />
-            <Skeleton variant="rectangular" width={150} height={25} />
-            <Skeleton variant="rectangular" width={100} height={15} />
-          </Stack>
+          <div className={`skeleton-wrapper`}>
+            <div className="skeleton-article">
+              <SkeletonElement type="img" />
+              <SkeletonElement type="nameBook" />
+              <SkeletonElement type="authorBook" />
+            </div>
+            <Shimmer />
+          </div>
 
-          <Stack spacing={1}>
-            <Skeleton variant="rectangular" width={220} height={330} />
-            <Skeleton variant="rectangular" width={150} height={25} />
-            <Skeleton variant="rectangular" width={100} height={15} />
-          </Stack>
+          <div className={`skeleton-wrapper `}>
+            <div className="skeleton-article">
+              <SkeletonElement type="img" />
+              <SkeletonElement type="nameBook" />
+              <SkeletonElement type="authorBook" />
+            </div>
+            <Shimmer />
+          </div>
 
-          <Stack spacing={1}>
-            <Skeleton variant="rectangular" width={220} height={330} />
-            <Skeleton variant="rectangular" width={150} height={25} />
-            <Skeleton variant="rectangular" width={100} height={15} />
-          </Stack>
+          <div className={`skeleton-wrapper  ${styles.skeletonFirst}`}>
+            <div className="skeleton-article">
+              <SkeletonElement type="img" />
+              <SkeletonElement type="nameBook" />
+              <SkeletonElement type="authorBook" />
+            </div>
+            <Shimmer />
+          </div>
 
-          <Stack spacing={1}>
-            <Skeleton variant="rectangular" width={220} height={330} />
-            <Skeleton variant="rectangular" width={150} height={25} />
-            <Skeleton variant="rectangular" width={100} height={15} />
-          </Stack>
+          <div className={`skeleton-wrapper  ${styles.skeletonSecond}`}>
+            <div className="skeleton-article">
+              <SkeletonElement type="img" />
+              <SkeletonElement type="nameBook" />
+              <SkeletonElement type="authorBook" />
+            </div>
+            <Shimmer />
+          </div>
+
+          <div className={`skeleton-wrapper ${styles.skeletonThird}`}>
+            <div className="skeleton-article">
+              <SkeletonElement type="img" />
+              <SkeletonElement type="nameBook" />
+              <SkeletonElement type="authorBook" />
+            </div>
+            <Shimmer />
+          </div>
         </div>
       </div>
     </div>

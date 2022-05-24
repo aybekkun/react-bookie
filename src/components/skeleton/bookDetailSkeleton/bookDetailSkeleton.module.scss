@@ -1,0 +1,106 @@
+.bookDetail {
+  max-width: 1440px;
+  min-width: 1029px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  padding: 0 10px;
+
+  .bookInfo {
+    .bookHeader {
+      margin-bottom: 20px;
+    }
+
+    .bookBody {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+  }
+
+  .bookAudio {
+    display: flex;
+    margin-bottom: 40px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .bookDetail {
+    max-width: 1003px;
+    min-width: 769px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    .bookInfo {
+      .bookHeader {
+        margin-bottom: 20px;
+      }
+
+      .bookBody {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 40px;
+      }
+    }
+
+    .bookAudio {
+      display: flex;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .bookDetail {
+    max-width: 748px;
+    min-width: 420px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+    .bookInfo {
+      .bookHeader {
+        margin-bottom: 20px;
+      }
+
+      .bookBody {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 30px;
+      }
+    }
+
+    .bookAudio {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .bookDetail {
+    max-width: 409px;
+    min-width: 320px;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+    .bookInfo {
+      .bookHeader {
+        margin-bottom: 10px;
+      }
+
+      .bookBody {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+    }
+
+    .bookAudio {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 10px;
+    }
+  }
+}

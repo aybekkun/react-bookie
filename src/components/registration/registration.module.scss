@@ -1,11 +1,13 @@
 .registrationPage {
-  width: 1140px;
+  max-width: 1440px;
+  min-width: 1024px;
   margin: 0 auto;
   height: calc(100vh - 300px);
   // height: calc(100vh - 140px);
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 
   .registrationInner {
     width: 30%;
@@ -18,6 +20,7 @@
     h2 {
       text-align: center;
       margin-bottom: 25px;
+      font-size: 25px;
     }
 
     form {
@@ -25,7 +28,7 @@
       flex-direction: column;
 
       p {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .inputContainer {
@@ -57,7 +60,7 @@
       margin-bottom: 20px;
       cursor: pointer;
       transition: 0.4s;
-      font-size: 16px;
+      font-size: 18px;
       border: none;
       outline: none;
     }
@@ -66,6 +69,86 @@
       color: blue;
       text-align: center;
       cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .registrationPage {
+    max-width: 1003px;
+    min-width: 769px;
+
+    .registrationInner {
+      width: 40%;
+
+      h2 {
+        font-size: 23px;
+      }
+
+      form {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .button {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .registrationPage {
+    max-width: 748px;
+    min-width: 420px;
+
+    .registrationInner {
+      width: 60%;
+
+      h2 {
+        margin-bottom: 15px;
+        font-size: 18px;
+      }
+
+      form {
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .button {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .registrationPage {
+    max-width: 409px;
+    min-width: 320px;
+    padding: 0 5px;
+    margin: 15px 0;
+
+    .registrationInner {
+      width: 80%;
+
+      h2 {
+        margin-bottom: 10px;
+        font-size: 15px;
+      }
+
+      form {
+        p {
+          font-size: 13px;
+        }
+      }
+
+      .button {
+        font-size: 13px;
+        margin: 5px 0;
+      }
     }
   }
 }

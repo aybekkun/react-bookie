@@ -1,4 +1,3 @@
-import React from "react";
 import HeaderCategories from "../../components/headerCategories/headerCategories";
 import HeaderNavbar from "../../components/headerNavbar/headerNavbar";
 import HeaderInfo from './../../components/headerInfo/headerInfo';

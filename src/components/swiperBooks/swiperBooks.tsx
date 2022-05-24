@@ -1,17 +1,17 @@
-import React, { FC } from "react";
+import { Person, Visibility } from "@material-ui/icons";
+import { FC } from "react";
+import { NavLink } from "react-router-dom";
+import { Autoplay, Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { createLastest } from "../../store/actionCreators/lastestActionCreator";
+import { bookDetailSlice } from "../../store/slices/bookDetailSlice";
+import "./swiper.css";
 //@ts-ignore
 import styles from "./swiperBooks.module.scss";
-//@ts-ignore
-import book from "../../assets/img/romantic-book.jpg";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "./swiper.css";
-import { Autoplay, Navigation, Pagination } from "swiper";
-import { bookDetailSlice } from "../../store/slices/bookDetailSlice";
-import { useAppDispatch } from "../../hooks/hooks";
-import { NavLink } from "react-router-dom";
 
 interface SwiperBooksProp {
   books: any;
@@ -21,6 +21,17 @@ interface SwiperBooksProp {
 const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
   const { setIdBook } = bookDetailSlice.actions;
   const dispatch = useAppDispatch();
+
+  const { user: userId, isUserLogin } = useAppSelector(
+    (state) => state.loginReducer
+  );
+
+  const handleBookId = (id: number) => {
+    if (isUserLogin) {
+      dispatch(createLastest({ userId: userId, bookId: id }));
+    }
+    dispatch(setIdBook(id));
+  };
 
   return (
     <div className={`${styles.container} ${styles.sliders}`}>
@@ -35,17 +46,21 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
             clickable: true,
           }}
           breakpoints={{
-            640: {
+            320: {
               slidesPerView: 2,
-              spaceBetween: 20,
+              spaceBetween: 10,
             },
             768: {
-              slidesPerView: 4,
-              spaceBetween: 40,
+              slidesPerView: 3,
+              spaceBetween: 30,
             },
             1024: {
               slidesPerView: 4,
               spaceBetween: 50,
+            },
+            1440: {
+              slidesPerView: 5,
+              spaceBetween: 40,
             },
           }}
           navigation={true}
@@ -64,16 +79,22 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
                   <SwiperSlide key={item.id}>
                     <div
                       className={styles.bookCard}
-                      onClick={() => dispatch(setIdBook(item.id))}
+                      onClick={() => handleBookId(item.id)}
                     >
                       <NavLink to={`/book/${item.id}`}>
-                        <img src={item.images} alt="book-image" />
+                        <img src={item.image} alt="book-image" />
                       </NavLink>
 
                       <p>{item.name}</p>
                       <div>
-                        <span>2min</span>
-                        <span>Pushkin</span>
+                        <div>
+                          <Visibility />
+                          <span>{item.view}</span>
+                        </div>
+                        <div>
+                          <Person />
+                          <span>{item.author_name}</span>
+                        </div>
                       </div>
                     </div>
                   </SwiperSlide>

@@ -13,12 +13,18 @@ import loginReducer from "./slices/loginSlice";
 import categoryBooksReducer from "./slices/categoryBooksSlice";
 import searchBooksReducer from "./slices/searchBookSlice";
 import { searchAPI } from "../services/searchService";
+import favoritesReducer from "./slices/favoritesSlice";
+import lastestReducer from "./slices/lastestSlice";
+import reviewReducer from "./slices/reviewSlice";
 
 const rootReducer = combineReducers({
   loginReducer,
   bookDetailReducer,
   categoryBooksReducer,
   searchBooksReducer,
+  favoritesReducer,
+  lastestReducer,
+  reviewReducer,
   [categoriesAPI.reducerPath]: categoriesAPI.reducer,
   [mainAPI.reducerPath]: mainAPI.reducer,
   [subCategoriesAPI.reducerPath]: subCategoriesAPI.reducer,
