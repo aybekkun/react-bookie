@@ -1,15 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchLastest } from "../actionCreators/lastestActionCreator";
+import { ILastestState } from "../../types/lastest";
+import { fetchLastest } from "../thunks/lastestThunk";
 
-interface LastestState {
-  books: any;
-  page: number;
-  isLoading: boolean;
-  error: string;
-}
-
-const initialState: LastestState = {
-  books: "",
+const initialState: ILastestState = {
+  books: {
+    current_page: 1,
+    data: [],
+    first_page_url: "",
+    from: 1,
+    last_page: 1,
+    last_page_url: "",
+    links: [],
+    next_page_url: null,
+    path: "",
+    per_page: 1,
+    prev_page_url: null,
+    to: 1,
+    total: 1,
+  },
   page: 1,
   isLoading: false,
   error: "",

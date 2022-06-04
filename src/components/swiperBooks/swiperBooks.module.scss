@@ -39,8 +39,8 @@
     justify-content: center;
     flex-direction: column;
     img {
-      width: 200px;
-      height: 320px;
+      width: 100%;
+      height: 100%;
     }
   }
 
@@ -48,18 +48,32 @@
     font-size: 16px;
     margin-top: 10px;
     text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
-  div {
+  .info {
     display: flex;
     justify-content: space-between;
     margin-top: 5px;
 
     div {
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .author {
+      width: 70%;
+    }
+
+    .view {
+      width: 30%;
 
       svg {
         margin-right: 3px;
@@ -113,10 +127,6 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      img {
-        width: 200px;
-        height: 300px;
-      }
     }
 
     p {
@@ -161,10 +171,6 @@
     padding: 10px;
 
     a {
-      img {
-        width: 160px;
-        height: 180px;
-      }
     }
 
     p {
@@ -206,10 +212,6 @@
     padding: 10px;
 
     a {
-      img {
-        width: 110px;
-        height: 130px;
-      }
     }
 
     p {
@@ -217,11 +219,27 @@
       margin-top: 5px;
     }
 
-    div {
-      margin-top: 5px;
+    .info {
+      .author {
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
 
-      span {
-        font-size: 10px;
+      .view {
+        svg {
+          width: 15px;
+          height: 15px;
+        }
+      }
+
+      div {
+        margin-top: 5px;
+
+        span {
+          font-size: 10px;
+        }
       }
     }
   }

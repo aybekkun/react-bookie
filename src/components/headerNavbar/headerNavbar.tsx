@@ -3,11 +3,11 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import useDebounce from "../../hooks/useDebounce";
-import { fetchSearchBooks } from "../../store/actionCreators/searchBookActionCreator";
-import { bookDetailSlice } from "../../store/slices/bookDetailSlice";
+import { fetchSearchBooks } from "../../store/thunks/searchBookThunk";
+import { ISearchData } from "../../types/search";
+import { FAVORITES, LASTEST } from "./../../routs/Routs";
 //@ts-ignore
 import styles from "./headerNavbar.module.scss";
-import { FAVORITES, LASTEST } from "./../../routs/Routs";
 
 const HeaderNavbar = () => {
   const dispatch = useAppDispatch();
@@ -15,23 +15,19 @@ const HeaderNavbar = () => {
   const [visionSearch, setVisionSearch] = useState<boolean>(false);
   const { books, isLoading, error } = useAppSelector(
     (state) => state.searchBooksReducer
-  );
-  const { setIdBook } = bookDetailSlice.actions;
+  )
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchWord(event.target.value);
   };
 
-  const handleClickBook = (idBook: number) => {
-    dispatch(setIdBook(idBook));
-    setVisionSearch(false);
-  };
-
   const debouncedValue = useDebounce<string>(searchWord, 500);
 
   useEffect(() => {
-    dispatch(fetchSearchBooks(searchWord));
-    setVisionSearch(true);
+    if (searchWord.length > 1) {
+      dispatch(fetchSearchBooks(searchWord));
+      setVisionSearch(true);
+    }
   }, [debouncedValue]);
 
   return (
@@ -71,12 +67,12 @@ const HeaderNavbar = () => {
                 }
               >
                 {books &&
-                  books?.data.map((item: any, index: number) => {
+                  books?.map((item: ISearchData) => {
                     return (
                       <li className={styles.searchItem} key={item.id}>
                         <NavLink
                           to={`/book/${item.id}`}
-                          onClick={() => handleClickBook(item.id)}
+                          onClick={() => setVisionSearch(false)}
                         >
                           <img src={item.image} alt={item.name} />
                           <span>{item.name}</span>

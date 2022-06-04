@@ -7,22 +7,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { createLastest } from "../../store/actionCreators/lastestActionCreator";
-import { bookDetailSlice } from "../../store/slices/bookDetailSlice";
+import { createLastest } from "../../store/thunks/lastestThunk";
+import { IMainBook } from "../../types/main";
 import "./swiper.css";
 //@ts-ignore
 import styles from "./swiperBooks.module.scss";
 
 interface SwiperBooksProp {
-  books: any;
+  books: IMainBook[];
   text: string;
 }
 
 const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
-  const { setIdBook } = bookDetailSlice.actions;
   const dispatch = useAppDispatch();
 
-  const { user: userId, isUserLogin } = useAppSelector(
+  const { userId: userId, isUserLogin } = useAppSelector(
     (state) => state.loginReducer
   );
 
@@ -30,7 +29,6 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
     if (isUserLogin) {
       dispatch(createLastest({ userId: userId, bookId: id }));
     }
-    dispatch(setIdBook(id));
   };
 
   return (
@@ -74,7 +72,7 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
         >
           <div className={styles.booksList}>
             {books &&
-              books.map((item: any, index: number) => {
+              books?.map((item: IMainBook) => {
                 return (
                   <SwiperSlide key={item.id}>
                     <div
@@ -86,12 +84,12 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
                       </NavLink>
 
                       <p>{item.name}</p>
-                      <div>
-                        <div>
+                      <div className={styles.info}>
+                        <div className={styles.view}>
                           <Visibility />
                           <span>{item.view}</span>
                         </div>
-                        <div>
+                        <div className={styles.author}>
                           <Person />
                           <span>{item.author_name}</span>
                         </div>

@@ -1,17 +1,23 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchCategoryBooks } from "../actionCreators/categoryBooksActionCreator";
+import { ICategoryBooksState } from "../../types/categoryBooks";
+import { fetchCategoryBooks } from "../thunks/categoryBooksThunk";
 
-interface CategoryBooksState {
-  id: any;
-  books: any;
-  isLoading: boolean;
-  error: string;
-  page: number;
-}
-
-const initialState: CategoryBooksState = {
-  id: "",
-  books: "",
+const initialState: ICategoryBooksState = {
+  books: {
+    current_page: 1,
+    data: [],
+    first_page_url: "",
+    from: 1,
+    last_page: 1,
+    last_page_url: "",
+    links: [],
+    next_page_url: null,
+    path: "",
+    per_page: 1,
+    prev_page_url: null,
+    to: 1,
+    total: 1,
+  },
   isLoading: false,
   error: "",
   page: 1,
@@ -21,9 +27,6 @@ export const categoryBooksSlice = createSlice({
   name: "categoryPage",
   initialState,
   reducers: {
-    setIdCategoryBook(state, action: PayloadAction<number>) {
-      state.id = action.payload;
-    },
     setPageCategoryBooks(state, action: PayloadAction<number>) {
       state.page = action.payload;
     },

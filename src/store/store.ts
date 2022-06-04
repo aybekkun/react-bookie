@@ -1,21 +1,13 @@
-import {
-  combineReducers,
-  configureStore,
-  getDefaultMiddleware,
-} from "@reduxjs/toolkit";
-import {
-  categoriesAPI,
-  subCategoriesAPI,
-} from "./../services/categoriesService";
-import { mainAPI } from "./../services/mainService";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import bookDetailReducer from "./slices/bookDetailSlice";
-import loginReducer from "./slices/loginSlice";
 import categoryBooksReducer from "./slices/categoryBooksSlice";
-import searchBooksReducer from "./slices/searchBookSlice";
-import { searchAPI } from "../services/searchService";
 import favoritesReducer from "./slices/favoritesSlice";
 import lastestReducer from "./slices/lastestSlice";
+import loginReducer from "./slices/loginSlice";
 import reviewReducer from "./slices/reviewSlice";
+import searchBooksReducer from "./slices/searchBookSlice";
+import categoriesReducer from "./slices/categoriesSlice";
+import mainReducer from "./slices/mainSlice";
 
 const rootReducer = combineReducers({
   loginReducer,
@@ -25,21 +17,13 @@ const rootReducer = combineReducers({
   favoritesReducer,
   lastestReducer,
   reviewReducer,
-  [categoriesAPI.reducerPath]: categoriesAPI.reducer,
-  [mainAPI.reducerPath]: mainAPI.reducer,
-  [subCategoriesAPI.reducerPath]: subCategoriesAPI.reducer,
-  [searchAPI.reducerPath]: searchAPI.reducer,
+  categoriesReducer,
+  mainReducer,
 });
 
 export const setupStore = () => {
   return configureStore({
     reducer: rootReducer,
-    middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware()
-        .concat(categoriesAPI.middleware)
-        .concat(mainAPI.middleware)
-        .concat(subCategoriesAPI.middleware)
-        .concat(searchAPI.middleware),
   });
 };
 

@@ -1,17 +1,23 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchBookDetail } from "../actionCreators/bookDetailActionCreator";
+import { fetchBookDetail } from "../thunks/bookDetailThunk";
 import { PayloadAction } from "@reduxjs/toolkit";
+import { IBookDetailData, IBookDetailState } from "../../types/bookDetail";
 
-interface BookDetailState {
-  id: number;
-  book: any;
-  isLoading: boolean;
-  error: string;
-}
-
-const initialState: BookDetailState = {
-  id: 0,
-  book: "",
+const initialState: IBookDetailState = {
+  audios: [],
+  book: {
+    id: 1,
+    name: "",
+    description: "",
+    view: 1,
+    dublyaj_actor_id: 1,
+    author_id: 1,
+    sub_category_id: 1,
+    image: "",
+    author: "",
+    dublyaj_actor_name: "",
+  },
+  simular: [],
   isLoading: false,
   error: "",
 };
@@ -19,14 +25,12 @@ const initialState: BookDetailState = {
 export const bookDetailSlice = createSlice({
   name: "bookDetail",
   initialState,
-  reducers: {
-    setIdBook(state, action: PayloadAction<number>){
-        state.id = action.payload;
-    }
-},
+  reducers: {},
   extraReducers: {
-    [fetchBookDetail.fulfilled.type]: (state, action: PayloadAction<any>) => {
-      state.book = action.payload;
+    [fetchBookDetail.fulfilled.type]: (state, action: PayloadAction<IBookDetailData>) => {
+      state.book = action.payload.book;
+      state.audios = action.payload.audios;
+      state.simular = action.payload.simular;
       state.error = "";
       state.isLoading = false;
     },

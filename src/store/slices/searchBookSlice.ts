@@ -1,14 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchSearchBooks } from "../actionCreators/searchBookActionCreator";
+import { ISearchData, ISearchState } from "../../types/search";
+import { fetchSearchBooks } from "../thunks/searchBookThunk";
 
-interface SearchBooksState {
-  books: any;
-  isLoading: boolean;
-  error: string;
-}
-
-const initialState: SearchBooksState = {
-  books: "",
+const initialState: ISearchState = {
+  books: [],
   isLoading: false,
   error: "",
 };
@@ -18,7 +13,7 @@ export const searchBooksSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchSearchBooks.fulfilled.type]: (state, action: PayloadAction<any>) => {
+    [fetchSearchBooks.fulfilled.type]: (state, action: PayloadAction<ISearchData[]>) => {
       state.books = action.payload;
       state.error = "";
       state.isLoading = false;

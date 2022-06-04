@@ -1,19 +1,22 @@
 import MainSceleton from "../../components/skeleton/mainSkeleton/mainSkeleton";
 import SwiperBooks from "../../components/swiperBooks/swiperBooks";
 import SkeletonVideo from "../../components/UI/skeleton/skeletonVideo";
-import { mainAPI } from "./../../services/mainService";
+
 //@ts-ignore
 import styles from "./main.module.scss";
-
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
+import { fetchMain } from "../../store/thunks/mainThunk";
 
 const Main = () => {
-  const {
-    data: mainBook,
-    isLoading,
-    error,
-  } = mainAPI.useFetchAllMainBooksQuery(null);
+  const dispatch = useAppDispatch();
+  const { books, isLoading, error } = useAppSelector(
+    (state) => state.mainReducer
+  );
 
-  console.log(mainBook);
+  useEffect(() => {
+    dispatch(fetchMain());
+  }, []);
 
   if (isLoading) {
     return (
@@ -81,15 +84,9 @@ const Main = () => {
         </div>
       </div>
 
-      <SwiperBooks books={mainBook?.data.lastest} text={"Trend Kitaplar"} />
-      <SwiperBooks
-        books={mainBook?.data.views}
-        text={"Songi qosilgan Kitaplar"}
-      />
-      <SwiperBooks
-        books={mainBook?.data.lastest}
-        text={"Qisqa audio kitaplar"}
-      />
+      <SwiperBooks books={books?.lastest} text={"Trend Kitaplar"} />
+      <SwiperBooks books={books?.views} text={"Songi qosilgan Kitaplar"} />
+      <SwiperBooks books={books?.lastest} text={"Qisqa audio kitaplar"} />
     </>
   );
 };

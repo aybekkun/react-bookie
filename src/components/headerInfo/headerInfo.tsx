@@ -3,25 +3,17 @@ import { Logout } from "@mui/icons-material";
 import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { LOGIN_PAGE, REGISTRATION_PAGE } from "../../routs/Routs";
-import { logout, setIsUserLogin } from "../../store/slices/loginSlice";
+import { fetchLogout } from './../../store/thunks/loginThunk';
 //@ts-ignore
 import styles from "./headerInfo.module.scss";
-import { useEffect, useState } from "react";
 
 const HeaderInfo = () => {
   const { isUserLogin } = useAppSelector((state) => state.loginReducer);
   const dispatch = useAppDispatch();
-  const [isLogOut, setIsLogOut] = useState<boolean>(false);
-
-  const token = JSON.stringify(localStorage.getItem("token") || {});
 
   const onLogOut = () => {
-    dispatch(logout(token));
+    dispatch(fetchLogout());
   };
-
-useEffect(() => {}, [isUserLogin]);
-
-  console.log(isUserLogin);
 
   return (
     <div className={`${styles.headerInfo} ${styles.container}`}>

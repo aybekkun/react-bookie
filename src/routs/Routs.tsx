@@ -1,12 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import BookDetail from "../components/bookDetail/bookDetail";
-import CategoriesPage from "../components/categoriesPage/categoriesPage";
-import Donate from "../components/donate/donate";
-import Favorites from "../components/favorites/favorites";
-import Lastest from "../components/lastest/lastest";
-import LogIn from "../components/login/login";
-import Registration from "../components/registration/registration";
-import Review from "../components/review/Review";
+import BookDetail from "../pages/bookDetail/bookDetail";
+import CategoriesPage from "../pages/categoriesPage/categoriesPage";
+import Donate from "../pages/donate/donate";
+import ErrorPage from "../pages/error/errorPage";
+import Favorites from "../pages/favorites/favorites";
+import Lastest from "../pages/lastest/lastest";
+import LogIn from "../pages/login/login";
+import Registration from "../pages/registration/registration";
+import Review from "../pages/review/Review";
 import Main from "../pages/main/main";
 
 export const LOGIN_PAGE = "/login";
@@ -30,6 +31,7 @@ function Rout() {
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/lastest" element={<Lastest />} />
         <Route path="/review" element={<Review />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
   );

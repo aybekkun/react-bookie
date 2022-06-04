@@ -1,55 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { fetchReviews } from "../actionCreators/reviewActionCreator";
+import { IReviewsData, IReviewState } from "../../types/review";
+import { fetchReviews } from "../thunks/reviewThunk";
 
-interface ReviewState {
-  reviews: IReviews;
-  isLoading: boolean;
-  error: string;
-  page: number;
-}
-
-export interface IReviews {
-  current_page: number;
-  data: IReviewsData[];
-  first_page_url: string;
-  from: number;
-  last_page: number;
-  last_page_url: number;
-  links: IReviewsLinks[];
-  next_page_url: string;
-  path: string;
-  per_page: number;
-  prev_page_url: null | string;
-  to: number;
-  total: number;
-  children?: JSX.Element | JSX.Element[];
-}
-
-export interface IReviewsData {
-  id: number;
-  name: string;
-  rating: number;
-  comment: string;
-  created_at: string;
-}
-
-export interface IReviewsLinks {
-  url: null | string;
-  label: string;
-  active: boolean;
-}
-
-const initialState: ReviewState = {
+const initialState: IReviewState = {
   reviews: {
     current_page: 1,
-    data: [
-      { id: 1, name: "aza", rating: 1, comment: "asd", created_at: "111" },
-    ],
+    data: [],
     first_page_url: "",
     from: 1,
     last_page: 1,
-    last_page_url: 1,
-    links: [{ url: null, label: "", active: true }],
+    last_page_url: "",
+    links: [],
     next_page_url: "",
     path: "",
     per_page: 1,
@@ -71,7 +32,10 @@ export const reviewSlice = createSlice({
     },
   },
   extraReducers: {
-    [fetchReviews.fulfilled.type]: (state, action: PayloadAction<IReviews>) => {
+    [fetchReviews.fulfilled.type]: (
+      state,
+      action: PayloadAction<IReviewsData>
+    ) => {
       state.reviews = action.payload;
       state.error = "";
       state.isLoading = false;

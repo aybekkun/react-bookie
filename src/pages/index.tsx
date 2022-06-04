@@ -1,6 +1,6 @@
 import Rout from "../routs/Routs";
-import Footer from "./footer/footer";
-import Header from "./header/header";
+import Footer from "../components/footer/footer";
+import Header from "../components/header/header";
 
 const Pages = () => {
   return (

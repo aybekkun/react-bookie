@@ -85,6 +85,7 @@
         background-color: #fff;
         right: 0;
         left: 0;
+        z-index: 999;
 
         .searchItem {
           padding: 5px;
@@ -295,7 +296,7 @@
     }
 
     .search {
-      width: 80%;
+      width: 70%;
       .searchContainer {
         .closeBtn {
           width: 16px;
@@ -303,12 +304,12 @@
         }
 
         input {
-          font-size: 12px;
+          font-size: 14px;
           padding: 0;
         }
 
         button {
-          padding: 2px 5px;
+          padding: 4px 7px;
 
           svg {
             width: 20px;
@@ -332,8 +333,8 @@
     .icons {
       a {
         svg {
-          width: 15px;
-          height: 15px;
+          width: 20px;
+          height: 20px;
         }
       }
     }
