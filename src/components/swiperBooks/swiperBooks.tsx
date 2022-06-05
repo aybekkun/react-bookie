@@ -9,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { createLastest } from "../../store/thunks/lastestThunk";
 import { IMainBook } from "../../types/main";
+import BookCard from "../card/bookCard";
 import "./swiper.css";
 //@ts-ignore
 import styles from "./swiperBooks.module.scss";
@@ -21,7 +22,7 @@ interface SwiperBooksProp {
 const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
   const dispatch = useAppDispatch();
 
-  const { userId: userId, isUserLogin } = useAppSelector(
+  const { userId, isUserLogin } = useAppSelector(
     (state) => state.loginReducer
   );
 
@@ -75,7 +76,8 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
               books?.map((item: IMainBook) => {
                 return (
                   <SwiperSlide key={item.id}>
-                    <div
+                    <BookCard props={item}/>
+                    {/* <div
                       className={styles.bookCard}
                       onClick={() => handleBookId(item.id)}
                     >
@@ -94,7 +96,7 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
                           <span>{item.author_name}</span>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                   </SwiperSlide>
                 );
               })}

@@ -1,7 +1,8 @@
 import MainSceleton from "../../components/skeleton/mainSkeleton/mainSkeleton";
 import SwiperBooks from "../../components/swiperBooks/swiperBooks";
 import SkeletonVideo from "../../components/UI/skeleton/skeletonVideo";
-
+//@ts-ignore
+import mainVideo from "../../assets/bookie.mp4";
 //@ts-ignore
 import styles from "./main.module.scss";
 import { useEffect } from "react";
@@ -74,13 +75,7 @@ const Main = () => {
         </div>
 
         <div className={styles.iframe}>
-          <iframe
-            src="https://youtube.com/embed/GJxQnrO0QGc"
-            frameBorder="0"
-            allow="autoplay; encrypted-media"
-            allowFullScreen
-            title="video"
-          />
+          <video controls src={mainVideo} />
         </div>
       </div>
 
