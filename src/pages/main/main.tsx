@@ -8,12 +8,11 @@ import styles from "./main.module.scss";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { fetchMain } from "../../store/thunks/mainThunk";
+import { Helmet } from "react-helmet";
 
 const Main = () => {
   const dispatch = useAppDispatch();
-  const { books, isLoading, error } = useAppSelector(
-    (state) => state.mainReducer
-  );
+  const { books, isLoading } = useAppSelector((state) => state.mainReducer);
 
   useEffect(() => {
     dispatch(fetchMain());
@@ -23,6 +22,7 @@ const Main = () => {
     return (
       <>
         <div className={styles.aboutBookie}>
+          
           <div className={styles.description}>
             <p>
               <b>
@@ -56,6 +56,26 @@ const Main = () => {
   return (
     <>
       <div className={styles.aboutBookie}>
+      <Helmet>
+            <title>Bookie</title>
+            <meta
+              name="description"
+              content="Biziń «Bookie» qaraqalpaq tilindegi audiokitaplar platformasına
+              xosh kelipsiz! Biz bul platformada qaraqalpaq tilinde basıp
+              shıǵarılǵan jáhán, ózbek hám qaraqalpaq ádebiyatınıń dúrdana
+              shıǵarmaları jáne qaraqalpaq awızeki dóretiwshiliginiń hasıl
+              marjanlarınınıń audio variantların jaratamız. Jáhán, ózbek hám
+              qaraqalpaq kórkem-ádebiy dóretpeleri, sonday-aq qaraqalpaq
+              folklorınıń dúrdana shıǵarmalarınıń elektron variantların islep
+              shıǵamız hám saytqa jaylastıramız. Kitapqumarlar arasında dawrıqqa
+              aylanǵan Jáhán ádebiyatınıń bestseller kitaplarınan 10-15 minutlıq
+              qısqa úzindi audiolar berip baramız."
+            />
+            <meta
+              name="keywords"
+              content="Kitap, Audiokitap, bookie, online audiokitap, Qaraqalpaq"
+            />
+          </Helmet>
         <div className={styles.description}>
           <p>
             <b>

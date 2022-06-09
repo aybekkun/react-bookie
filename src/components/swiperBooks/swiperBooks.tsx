@@ -1,13 +1,9 @@
-import { Person, Visibility } from "@material-ui/icons";
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
 import { Autoplay, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { createLastest } from "../../store/thunks/lastestThunk";
 import { IMainBook } from "../../types/main";
 import BookCard from "../card/bookCard";
 import "./swiper.css";
@@ -20,18 +16,6 @@ interface SwiperBooksProp {
 }
 
 const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
-  const dispatch = useAppDispatch();
-
-  const { userId, isUserLogin } = useAppSelector(
-    (state) => state.loginReducer
-  );
-
-  const handleBookId = (id: number) => {
-    if (isUserLogin) {
-      dispatch(createLastest({ userId: userId, bookId: id }));
-    }
-  };
-
   return (
     <div className={`${styles.container} ${styles.sliders}`}>
       <div className={styles.popularBooks}>
@@ -77,26 +61,6 @@ const SwiperBooks: FC<SwiperBooksProp> = ({ books, text }) => {
                 return (
                   <SwiperSlide key={item.id}>
                     <BookCard props={item}/>
-                    {/* <div
-                      className={styles.bookCard}
-                      onClick={() => handleBookId(item.id)}
-                    >
-                      <NavLink to={`/book/${item.id}`}>
-                        <img src={item.image} alt="book-image" />
-                      </NavLink>
-
-                      <p>{item.name}</p>
-                      <div className={styles.info}>
-                        <div className={styles.view}>
-                          <Visibility />
-                          <span>{item.view}</span>
-                        </div>
-                        <div className={styles.author}>
-                          <Person />
-                          <span>{item.author_name}</span>
-                        </div>
-                      </div>
-                    </div> */}
                   </SwiperSlide>
                 );
               })}

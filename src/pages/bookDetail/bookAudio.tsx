@@ -8,9 +8,7 @@ import styles from "./bookDetail.module.scss";
 const BookAudio = () => {
   const [song, setSong] = useState<number>(0);
 
-  const { audios } = useAppSelector(
-    (state) => state.bookDetailReducer
-  );
+  const { audios } = useAppSelector((state) => state.bookDetailReducer);
 
   return (
     <div className={styles.bookAudio}>
@@ -19,7 +17,12 @@ const BookAudio = () => {
           {audios &&
             audios?.map((item: IBookDetailAudios, index: number) => {
               return (
-                <li key={item.id} onClick={() => setSong(index)}>
+                <li
+                  key={item.id}
+                  onClick={() => {
+                    setSong(index);
+                  }}
+                >
                   <span>{item.title}</span>
                   <span>23:12</span>
                 </li>
@@ -29,6 +32,7 @@ const BookAudio = () => {
       </div>
 
       <div className={styles.playerContainer}>
+        <p>{audios.length > 0 ? audios[song].title : ""}</p>
         <AudioPlayerComponent song={song} />
       </div>
     </div>

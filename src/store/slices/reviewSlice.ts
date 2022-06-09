@@ -19,6 +19,7 @@ const initialState: IReviewState = {
     total: 1,
   },
   isLoading: false,
+  loadReview: 1,
   error: "",
   page: 1,
 };
@@ -30,6 +31,9 @@ export const reviewSlice = createSlice({
     setPageReviews(state, action: PayloadAction<number>) {
       state.page = action.payload;
     },
+    setLoadReview(state, action: PayloadAction<number>) {
+      state.loadReview = state.loadReview + action.payload
+    }
   },
   extraReducers: {
     [fetchReviews.fulfilled.type]: (

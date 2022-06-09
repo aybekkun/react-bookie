@@ -12,15 +12,13 @@ const SearchComponent = () => {
   const dispatch = useAppDispatch();
   const [searchWord, setSearchWord] = useState<string>("");
   const [visionSearch, setVisionSearch] = useState<boolean>(false);
-  const { books } = useAppSelector(
-    (state) => state.searchBooksReducer
-  );
+  const { books } = useAppSelector((state) => state.searchBooksReducer);
+
+  const debouncedValue = useDebounce<string>(searchWord, 500);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchWord(event.target.value);
   };
-
-  const debouncedValue = useDebounce<string>(searchWord, 500);
 
   useEffect(() => {
     if (searchWord.length > 1) {

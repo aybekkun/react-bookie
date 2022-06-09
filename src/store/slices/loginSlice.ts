@@ -1,5 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ILoginData, ILoginState, IRegistrationData } from "../../types/login";
+import {
+  ICheckData,
+  ILoginData,
+  ILoginState,
+  IRegistrationData,
+} from "../../types/login";
 import {
   fetchCheck,
   fetchLogin,
@@ -11,7 +16,7 @@ const initialState: ILoginState = {
   userId: null,
   token: localStorage.getItem("token") ? localStorage.getItem("token") : null,
   isUserLogin: false,
-  is_commented: false,
+  isCommented: false,
   isLoading: false,
   error: null,
 };
@@ -43,6 +48,7 @@ const loginSlice = createSlice({
     [fetchLogin.fulfilled.type]: (state, action: PayloadAction<ILoginData>) => {
       state.userId = action.payload.user_id;
       state.isUserLogin = true;
+      state.isCommented = action.payload.is_commented;
       state.error = "";
       state.isLoading = false;
     },
@@ -68,9 +74,10 @@ const loginSlice = createSlice({
       state.error = action.payload;
     },
 
-    [fetchCheck.fulfilled.type]: (state, action: PayloadAction<ILoginData>) => {
-      state.userId = action.payload.user_id;
+    [fetchCheck.fulfilled.type]: (state, action: PayloadAction<ICheckData>) => {
+      state.userId = action.payload.id;
       state.isUserLogin = true;
+      state.isCommented = action.payload.is_commented;
       state.error = "";
       state.isLoading = false;
     },

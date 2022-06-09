@@ -2,22 +2,24 @@ import {
   AccessTime,
   Favorite,
   FavoriteBorder,
-  Person
+  Person,
 } from "@material-ui/icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
-import { createFavorite, deleteFavorite } from "../../store/thunks/favoritesThunk";
+import {
+  createFavorite,
+  deleteFavorite,
+  fetchAllFavorites,
+} from "../../store/thunks/favoritesThunk";
+import { Helmet } from "react-helmet";
 //@ts-ignore
 import styles from "./bookDetail.module.scss";
-
 
 const BookInfo = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
-  const { book } = useAppSelector(
-    (state) => state.bookDetailReducer
-  );
+  const { book } = useAppSelector((state) => state.bookDetailReducer);
   const { userId } = useAppSelector((state) => state.loginReducer);
   const [visibleFavorite, setVisibleFavorite] = useState<boolean>(false);
   const handleCreateFavorite = () => {
@@ -30,8 +32,28 @@ const BookInfo = () => {
     setVisibleFavorite(!visibleFavorite);
   };
 
+  const isFavorite = async () => {
+    const { payload } = await dispatch<any>(fetchAllFavorites(userId));
+
+    for (let i = 0; i < payload.length; i++) {
+      if (payload[i].id === book.id) {
+        setVisibleFavorite(true);
+        break;
+      }
+    }
+  };
+
+  useEffect(() => {
+    isFavorite();
+  }, []);
+
   return (
     <div className={styles.bookInfo}>
+      <Helmet>
+        <title>{book && book?.name}</title>
+        <meta name="description" content={book && book?.description}/>
+        <meta name="keywords" content="Kitap, Audiokitap, bookie, online audiokitap, Qaraqalpaq"/>
+      </Helmet>
       <div className={styles.bookHeader}>
         <h2>{book && book?.name}</h2>
         {visibleFavorite ? (
@@ -42,7 +64,7 @@ const BookInfo = () => {
       </div>
 
       <div className={styles.bookBody}>
-        <img src={book && book?.image} alt="book" />
+        <img src={book && book?.image} alt={book && book?.name} />
         <div>
           <div className={styles.bookDescription}>
             {book && book?.description}
