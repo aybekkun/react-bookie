@@ -1,0 +1,80 @@
+.favoritesPage {
+  max-width: 1440px;
+  min-width: 1029px;
+  margin: 0 auto;
+
+  h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 30px;
+  }
+}
+
+.booksList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 4vw;
+}
+
+.pagination {
+  margin: auto 0;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+  .favoritesPage {
+    max-width: 1003px;
+    min-width: 769px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
+  }
+
+  .booksList {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2vw;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 768px) {
+  .favoritesPage {
+    max-width: 748px;
+    min-width: 420px;
+    margin: 0 auto;
+    padding: 0 10px;
+
+    h2 {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+  }
+
+  .booksList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2vw;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 419px) {
+  .favoritesPage {
+    max-width: 409px;
+    min-width: 320px;
+    padding: 0 5px;
+
+    h2 {
+      margin-top: 10px;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+  }
+
+  .booksList {
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2vw;
+  }
+}

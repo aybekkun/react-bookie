@@ -4,7 +4,6 @@ import { NavLink } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { LOGIN_PAGE, REGISTRATION_PAGE } from "../../routs/Routs";
 import { fetchLogout } from './../../store/thunks/loginThunk';
-//@ts-ignore
 import styles from "./headerInfo.module.scss";
 
 const HeaderInfo = () => {

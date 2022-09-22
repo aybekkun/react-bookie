@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { getPagesArray } from "../../../utils/pages";
-//@ts-ignore
 import styles from "./pagination.module.scss";
 
 interface PaginationProps {

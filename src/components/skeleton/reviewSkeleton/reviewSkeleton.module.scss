@@ -1,0 +1,11 @@
+.reviewSkeleton {
+  width: 100%;
+
+  .reviews {
+    margin-bottom: 20px;
+  }
+
+  .reviews:last-child {
+    margin-bottom: 0;
+  }
+}

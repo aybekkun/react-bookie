@@ -13,7 +13,6 @@ import {
   fetchAllFavorites,
 } from "../../store/thunks/favoritesThunk";
 import { Helmet } from "react-helmet";
-//@ts-ignore
 import styles from "./bookDetail.module.scss";
 
 const BookInfo = () => {

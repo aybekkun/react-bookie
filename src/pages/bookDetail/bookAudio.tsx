@@ -2,7 +2,6 @@ import { useState } from "react";
 import { useAppSelector } from "../../hooks/hooks";
 import { IBookDetailAudios } from "../../types/bookDetail";
 import AudioPlayerComponent from "./audioPlayer";
-//@ts-ignore
 import styles from "./bookDetail.module.scss";
 
 const BookAudio = () => {

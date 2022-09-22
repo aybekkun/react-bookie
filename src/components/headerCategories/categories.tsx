@@ -1,7 +1,6 @@
 import { useAppSelector } from "../../hooks/hooks";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { ICategoriesData, ISubData } from "../../types/categories";
-//@ts-ignore
 import styles from "./headerCategories.module.scss";
 import { NavLink } from "react-router-dom";
 

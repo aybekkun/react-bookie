@@ -1,7 +1,6 @@
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import MenuIcon from "@mui/icons-material/Menu";
 import { NavLink } from "react-router-dom";
-//@ts-ignore
 import styles from "./headerCategories.module.scss";
 
 const AdabtiveCategoriesComponent = () => {

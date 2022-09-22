@@ -1,4 +1,3 @@
-//@ts-ignore
 import styles from "./preloader.module.scss";
 
 const Preloader = () => {

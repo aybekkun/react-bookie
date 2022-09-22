@@ -1,6 +1,5 @@
 import CategorySkeleton from "../categorySkeleton/categorySkeleton";
 import SkeletonElement from "./../../UI/skeleton/SkeletonElement";
-//@ts-ignore
 import styles from "./bookDetailSkeleton.module.scss";
 
 const BookDetailSkeleton = () => {

@@ -1,6 +1,5 @@
 import Shimmer from "../../UI/skeleton/Shimmer";
 import SkeletonElement from "../../UI/skeleton/SkeletonElement";
-//@ts-ignore
 import styles from "./categorySkeleton.module.scss";
 
 const CategorySkeleton = () => {

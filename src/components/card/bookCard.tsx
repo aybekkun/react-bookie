@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { createLastest } from "../../store/thunks/lastestThunk";
 import { IBookCard } from "../../types";
-//@ts-ignore
 import styles from "./bookCard.module.scss";
 
 const BookCard: FC<IBookCard> = ({ props }) => {

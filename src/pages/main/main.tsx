@@ -1,9 +1,7 @@
 import MainSceleton from "../../components/skeleton/mainSkeleton/mainSkeleton";
 import SwiperBooks from "../../components/swiperBooks/swiperBooks";
 import SkeletonVideo from "../../components/UI/skeleton/skeletonVideo";
-//@ts-ignore
 import mainVideo from "../../assets/bookie.mp4";
-//@ts-ignore
 import styles from "./main.module.scss";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";

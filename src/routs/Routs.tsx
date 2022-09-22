@@ -19,21 +19,18 @@ export const LASTEST = "/lastest";
 
 function Rout() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route path="/category/:id" element={<CategoriesPage />} />
-        <Route path="/category/:id/book/:id" element={<BookDetail />} />
-        <Route path="/login" element={<LogIn />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/book/:id" element={<BookDetail />} />
-        <Route path="/donate" element={<Donate />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/lastest" element={<Lastest />} />
-        <Route path="/review" element={<Review />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
-    </>
+    <Routes>
+      <Route path="/" element={<Main />} />
+      <Route path="/category/:id" element={<CategoriesPage />} />
+      <Route path="/login" element={<LogIn />} />
+      <Route path="/registration" element={<Registration />} />
+      <Route path="/book/:id" element={<BookDetail />} />
+      <Route path="/donate" element={<Donate />} />
+      <Route path="/favorites" element={<Favorites />} />
+      <Route path="/lastest" element={<Lastest />} />
+      <Route path="/review" element={<Review />} />
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 

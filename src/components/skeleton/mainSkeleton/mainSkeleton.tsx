@@ -1,7 +1,6 @@
 import { FC } from "react";
 import Shimmer from "../../UI/skeleton/Shimmer";
 import SkeletonElement from "../../UI/skeleton/SkeletonElement";
-//@ts-ignore
 import styles from "./mainSkeleton.module.scss";
 
 interface MainSkeletonProp {

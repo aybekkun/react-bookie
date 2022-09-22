@@ -8,7 +8,6 @@ import {
 } from "../../store/thunks/categoriesThunk";
 import AdabtiveCategoriesComponent from "./adaptiveCategories";
 import CategoriesComponent from "./categories";
-//@ts-ignore
 import styles from "./headerCategories.module.scss";
 
 const HeaderCategories = () => {

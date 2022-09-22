@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { IMainBook } from "../../types/main";
 import BookCard from "../card/bookCard";
 import "./swiper.css";
-//@ts-ignore
 import styles from "./swiperBooks.module.scss";
 
 interface SwiperBooksProp {

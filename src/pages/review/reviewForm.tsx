@@ -4,7 +4,6 @@ import * as yup from "yup";
 import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import { reviewSlice } from "../../store/slices/reviewSlice";
 import { createReview } from "../../store/thunks/reviewThunk";
-//@ts-ignore
 import styles from "./Review.module.scss";
 import { useEffect } from "react";
 

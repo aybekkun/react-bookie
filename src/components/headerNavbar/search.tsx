@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from "../../hooks/hooks";
 import useDebounce from "../../hooks/useDebounce";
 import { fetchSearchBooks } from "../../store/thunks/searchBookThunk";
 import { ISearchData } from "../../types/search";
-//@ts-ignore
 import styles from "./headerNavbar.module.scss";
 
 const SearchComponent = () => {
